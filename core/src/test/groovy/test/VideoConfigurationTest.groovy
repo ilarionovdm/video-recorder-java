@@ -20,12 +20,13 @@ class VideoConfigurationTest extends SpockBaseTest {
         def conf = VideoRecorder.conf()
 
         then:
-        conf.folder() == System.getProperty("user.dir") + "/video"
+        conf.folder() == System.getProperty("user.dir") + File.separator + "video"
         conf.frameRate() == 24
         conf.mode() == RecordingMode.ANNOTATED
         conf.recorderType() == RecorderType.MONTE
         conf.saveMode() == VideoSaveMode.FAILED_ONLY
         conf.videoEnabled()
         conf.screenSize() == SystemUtils.systemScreenDimension
+        conf.maxRecordingTime() == 3600000
     }
 }

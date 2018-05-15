@@ -78,6 +78,7 @@ public class MonteRecorder extends VideoRecorder {
         int height = screenSize.height;
 
         Rectangle captureSize = new Rectangle(0, 0, width, height);
+        long maxRecordingTime = videoConfiguration.maxRecordingTime();
 
         return MonteScreenRecorderBuilder
                 .builder()

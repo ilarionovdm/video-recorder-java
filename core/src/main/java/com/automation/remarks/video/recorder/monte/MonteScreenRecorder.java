@@ -29,6 +29,18 @@ public class MonteScreenRecorder extends ScreenRecorder {
     }
 
     MonteScreenRecorder(GraphicsConfiguration cfg,
+                        Format fileFormat,
+                        Format screenFormat,
+                        Format mouseFormat,
+                        Format audioFormat,
+                        File folder,
+                        long maxRecordingTime) throws IOException, AWTException {
+        super(cfg, fileFormat, screenFormat, mouseFormat, audioFormat);
+        super.movieFolder = folder;
+        super.setMaxRecordingTime(maxRecordingTime);
+    }
+
+    MonteScreenRecorder(GraphicsConfiguration cfg,
                         Rectangle rectangle,
                         Format fileFormat,
                         Format screenFormat,
@@ -37,6 +49,19 @@ public class MonteScreenRecorder extends ScreenRecorder {
                         File folder) throws IOException, AWTException {
         super(cfg, rectangle, fileFormat, screenFormat, mouseFormat, audioFormat);
         super.movieFolder = folder;
+    }
+
+    MonteScreenRecorder(GraphicsConfiguration cfg,
+                        Rectangle rectangle,
+                        Format fileFormat,
+                        Format screenFormat,
+                        Format mouseFormat,
+                        Format audioFormat,
+                        File folder,
+                        long maxRecordingTime) throws IOException, AWTException {
+        super(cfg, rectangle, fileFormat, screenFormat, mouseFormat, audioFormat);
+        super.movieFolder = folder;
+        super.setMaxRecordingTime(maxRecordingTime);
     }
 
     @Override

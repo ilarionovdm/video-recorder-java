@@ -20,6 +20,7 @@ public class MonteScreenRecorderBuilder {
     private File folder;
     private Rectangle rectangle;
     private String fileName;
+    private long maxRecordingTime;
 
     public static Builder builder() {
         return new MonteScreenRecorderBuilder().new Builder();
@@ -66,6 +67,11 @@ public class MonteScreenRecorderBuilder {
             MonteScreenRecorderBuilder.this.rectangle = rectangle;
             return this;
         }
+        public Builder setMaxRecordingTime(long maxRecordingTime) {
+            MonteScreenRecorderBuilder.this.maxRecordingTime = maxRecordingTime;
+            return this;
+        }
+
 
         public MonteScreenRecorder build() {
             try {
@@ -75,7 +81,8 @@ public class MonteScreenRecorderBuilder {
                         screenFormat,
                         mouseFormat,
                         audioFormat,
-                        folder);
+                        folder,
+                        maxRecordingTime);
             } catch (IOException | AWTException e) {
                 throw new RecordingException(e);
             }

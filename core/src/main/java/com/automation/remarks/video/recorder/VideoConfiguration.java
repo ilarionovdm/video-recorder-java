@@ -64,4 +64,8 @@ public interface VideoConfiguration extends Config {
   @DefaultValue("yuv420p")
   @Key("ffmpeg.pixelFormat")
   String ffmpegPixelFormat();
+
+  @DefaultValue("3600000")
+  @Key("video.max.time")
+  long maxRecordingTime();
 }
